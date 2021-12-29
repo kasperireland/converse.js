@@ -10,11 +10,16 @@
     <link rel="shortcut icon" type="image/ico" href="/dist/favicon.ico"/>
     <script type="text/javascript" src="inverse-analytics.js"></script>
     <noscript><p><img src="//stats.opkode.com/piwik.php?idsite=5" style="border:0;" alt="" /></p></noscript>
-    <link rel="manifest" href="./manifest.json">
+    <link rel="manifest" href="manifest.json" />
     <link type="text/css" rel="stylesheet" media="screen" href="/dist/converse.min.css" />
     <link rel="stylesheet" href="/dist/DarkReader-conversejs-org.css">
     <script src="https://cdn.conversejs.org/3rdparty/libsignal-protocol.min.js"></script>
     <script src="/dist/converse.min.js"></script>
+	<script type="module">
+   import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
+   const el = document.createElement('pwa-update');
+   document.body.appendChild(el);
+</script>
 </head>
 <body class="converse-fullscreen">
 <noscript>You need to enable JavaScript to run the Converse.js chat app.</noscript>
