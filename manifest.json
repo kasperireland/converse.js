@@ -1,0 +1,18 @@
+{
+  "background_color": "#ffffff",
+  "description": "Converse.js XMPP client, powered by Swivro",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "converse.swivro",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "converse.swivro",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/dist/favicon.ico",
+      "type": "image/ico"
+    }
+  ]
+}
