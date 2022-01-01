@@ -3,10 +3,10 @@
   "description": "Converse.js XMPP client, powered by Swivro",
   "dir": "ltr",
   "display": "standalone",
-  "name": "converse.swivro",
+  "name": "Swivro",
   "orientation": "any",
   "scope": "/",
-  "short_name": "converse.swivro",
+  "short_name": "Swivro",
   "start_url": "/",
   "theme_color": "#ffffff",
   "icons": [
