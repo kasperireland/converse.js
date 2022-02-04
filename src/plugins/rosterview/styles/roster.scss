@@ -30,11 +30,8 @@
             padding: 0.2em;
         }
 
-        span {
-            padding: 0.3em;
-            cursor: pointer;
-            min-width: 25px;
-            text-align: center;
+        converse-icon {
+            padding: 0.25em;
         }
 
         .roster-filter {
@@ -42,6 +39,7 @@
             margin: 0.2em;
             font-size: calc(var(--font-size) - 2px);
         }
+
         .state-type {
             font-size: calc(var(--font-size) - 2px);
             width: 100%;
@@ -56,6 +54,16 @@
         overflow-y: auto;
         color: var(--text-color);
 
+        .roster-group-contacts {
+            .list-item {
+                &:hover {
+                    .list-item-action {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
         converse-roster-contact {
             width: 100%;
             overflow: hidden;
@@ -63,6 +71,16 @@
             text-overflow: ellipsis;
             display: flex;
             justify-content: space-between;
+
+            .list-item-action {
+                line-height: 2em;
+            }
+
+            &:hover {
+                .list-item-action {
+                    opacity: 1;
+                }
+            }
         }
 
         .group-toggle {
@@ -83,7 +101,7 @@
             margin: 0.25em 0;
         }
 
-        li {
+        .list-item {
             &.requesting-xmpp-contact {
                 a {
                     line-height: var(--line-height);
@@ -98,14 +116,15 @@
                 padding: 0;
                 &.unread-msgs {
                     font-weight: bold;
+                    color: var(--unread-msgs-color);
                     .contact-name {
                         width: 70%;
                     }
                 }
 
                 .msgs-indicator {
-                    color: white;
-                    background-color: var(--chat-head-color);
+                    color: var(--text-color-invert);
+                    background-color: var(--chat-color);
                     opacity: 1;
                     border-radius: 10%;
                     padding: 0.2em 0.4em;
@@ -142,7 +161,7 @@
                 margin-left: 5px;
             }
             &:hover {
-                background-color: var(controlbox-pane-bg-hover-color);
+                background-color: var(--controlbox-pane-bg-hover-color);
             }
         }
     }

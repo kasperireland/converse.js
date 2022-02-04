@@ -609,7 +609,10 @@ async function fetchDeviceLists () {
     return Promise.all(promises);
 }
 
-export async function initOMEMO () {
+export async function initOMEMO (reconnecting) {
+    if (reconnecting) {
+        return;
+    }
     if (!_converse.config.get('trusted') || api.settings.get('clear_cache_on_logout')) {
         log.warn('Not initializing OMEMO, since this browser is not trusted or clear_cache_on_logout is set to true');
         return;
@@ -710,7 +713,11 @@ export function getOMEMOToolbarButton (toolbar_el, buttons) {
 
     let color;
     if (model.get('omemo_supported')) {
-        color = model.get('omemo_active') ? `var(--info-color)` : `var(--error-color)`;
+        if (model.get('omemo_active')) {
+            color = is_muc ? `var(--muc-color)` : `var(--chat-toolbar-btn-color)`;
+        } else {
+            color = `var(--error-color)`;
+        }
     } else {
         color = `var(--muc-toolbar-btn-disabled-color)`;
     }

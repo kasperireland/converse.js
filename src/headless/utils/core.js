@@ -38,6 +38,19 @@ export function isUniView () {
 }
 
 
+export async function tearDown () {
+    await _converse.api.trigger('beforeTearDown', {'synchronous': true});
+    window.removeEventListener('click', _converse.onUserActivity);
+    window.removeEventListener('focus', _converse.onUserActivity);
+    window.removeEventListener('keypress', _converse.onUserActivity);
+    window.removeEventListener('mousemove', _converse.onUserActivity);
+    window.removeEventListener(_converse.unloadevent, _converse.onUserActivity);
+    window.clearInterval(_converse.everySecondTrigger);
+    _converse.api.trigger('afterTearDown');
+    return _converse;
+}
+
+
 /**
  * The utils object
  * @namespace u
@@ -433,7 +446,7 @@ u.placeCaretAtEnd = function (textarea) {
     this.scrollTop = 999999;
 };
 
-u.getUniqueId = function (suffix) {
+export function getUniqueId (suffix) {
     const uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
         const r = Math.random() * 16 | 0;
         const v = c === 'x' ? r : r & 0x3 | 0x8;
@@ -574,5 +587,6 @@ export function decodeHTMLEntities (str) {
 }
 
 export default Object.assign({
-    isEmptyMessage
+    isEmptyMessage,
+    getUniqueId
 }, u);

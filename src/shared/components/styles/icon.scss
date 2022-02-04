@@ -2,9 +2,24 @@ converse-icon {
     display: inline-block;
     padding: 0;
     margin: 0;
-    fill: var(--subdued-color);
+    svg {
+	fill: var(--subdued-color);
+    }
+    &.clickable {
+	&:hover {
+	    svg {
+		fill: var(--icon-hover-color);
+	    }
+	}
+    }
+}
 
-    &:hover {
-	fill: var(--text-color);
+a, .clickable {
+    converse-icon {
+	&:hover {
+	    svg {
+		fill: var(--icon-hover-color);
+	    }
+	}
     }
 }

@@ -11,10 +11,10 @@ if (BOOTSTRAP_IGNORE_MODULES.length > 0) {
 
 module.exports = {
     output: {
-        path: path.resolve(__dirname, 'dist'), // Output path for generated bundles
+        path: path.resolve(__dirname, '../dist'), // Output path for generated bundles
         chunkFilename: '[name].js'
     },
-    entry: path.resolve(__dirname, 'src/entry.js'),
+    entry: path.resolve(__dirname, '../src/entry.js'),
     externals: [{
         "window": "window"
     }],
@@ -24,7 +24,7 @@ module.exports = {
     module: {
         rules: [
         {
-            test: /LC_MESSAGES\/converse.po$/,
+            test: /LC_MESSAGES[\\/]converse.po$/,
             type: "json",
             use: [
             {
@@ -36,7 +36,7 @@ module.exports = {
             }
             ]
         }, {
-            test: /webfonts\/.*\.(woff(2)?|ttf|eot|truetype|svg)(\?v=\d+\.\d+\.\d+)?$/,
+            test: /webfonts[\\/].*\.(woff(2)?|ttf|eot|truetype|svg)(\?v=\d+\.\d+\.\d+)?$/,
             use: [
             {
                 loader: 'file-loader',
@@ -62,8 +62,8 @@ module.exports = {
                     options: {
                         sassOptions: {
                             includePaths: [
-                                path.resolve(__dirname, 'node_modules/'),
-                                path.resolve(__dirname, 'src/')
+                                path.resolve(__dirname, '../node_modules/'),
+                                path.resolve(__dirname, '../src/')
                             ]
                         },
                         sourceMap: true
@@ -108,13 +108,13 @@ module.exports = {
         extensions: ['.js'],
         modules: [
             'node_modules',
-            path.resolve(__dirname, "src")
+            path.resolve(__dirname, "../src")
         ],
         alias: {
-            "IPv6":                     path.resolve(__dirname, "node_modules/urijs/src/IPv6"),
-            "SecondLevelDomains":       path.resolve(__dirname, "node_modules/urijs/src/SecondLevelDomains"),
-            "formdata-polyfill":        path.resolve(__dirname, "node_modules/formdata-polyfill/FormData"),
-            "punycode":                 path.resolve(__dirname, "node_modules/urijs/src/punycode")
+            "IPv6":                     path.resolve(__dirname, "../node_modules/urijs/src/IPv6"),
+            "SecondLevelDomains":       path.resolve(__dirname, "../node_modules/urijs/src/SecondLevelDomains"),
+            "formdata-polyfill":        path.resolve(__dirname, "../node_modules/formdata-polyfill/FormData"),
+            "punycode":                 path.resolve(__dirname, "../node_modules/urijs/src/punycode")
         }
     }
 }
